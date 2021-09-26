@@ -15,6 +15,10 @@ public interface OrderBookManager {
    * <p>Orders for the same instrument, on the same side, with the same price should be kept in the
    * order as they arrive
    *
+   * Time complexity:
+   * - O(log N) - given new price level is introduced
+   * - O(1)     - given existing price level
+   *
    * @param order new order to add <br>
    * @see Order
    */
@@ -22,6 +26,10 @@ public interface OrderBookManager {
 
   /**
    * Delete an existing order. Returns false if no such order exists
+   *
+   * Time complexity:
+   * - O(log N) - given price level is removed
+   * - O(1)     - given price level is not removed
    *
    * @param orderId unique identifier of existing order
    * @return True if the order was successfully deleted, false otherwise
@@ -32,6 +40,8 @@ public interface OrderBookManager {
    * Get the best price for the instrument and side.
    *
    * <p>For buy orders - the highest price For sell orders - the lowest price
+   *
+   * Time complexity: O(1)
    *
    * @param instrument identifier of an instrument
    * @param side either buy or sell
@@ -44,6 +54,8 @@ public interface OrderBookManager {
    * Get all orders for the instrument on given side with given price
    *
    * <p>Result should contain orders in the same order as they arrive
+   *
+   * Time complexity: O(1)
    *
    * @param instrument identifier of an instrument
    * @param side either buy or sell

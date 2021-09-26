@@ -14,11 +14,6 @@ public class SingleInstrumentOrderBook implements OrderBook {
     private final OrderBookSide buyOrders = new OrderBookBuySide();
     private final OrderBookSide sellOrders = new OrderBookSellSide();
 
-    /**
-     * Time complexity:
-     * O(log N) - given new price level is introduced
-     * O(1)     - given existing price level
-     */
     @Override
     public void addOrder(Order order) {
         performOrderMatching(order);
@@ -33,11 +28,6 @@ public class SingleInstrumentOrderBook implements OrderBook {
         bookSide.addOrder(order);
     }
 
-    /**
-     * Time complexity:
-     * O(log N) - given price level is removed
-     * O(1)     - given price level is not removed
-     */
     @Override
     public boolean removeOrder(long orderId) {
         if (buyOrders.hasOrder(orderId)) {
@@ -47,9 +37,6 @@ public class SingleInstrumentOrderBook implements OrderBook {
         }
     }
 
-    /**
-     * Time complexity: O(1)
-     */
     @Override
     public Optional<Long> getBestPrice(Side side) {
         return side.equals(Side.BUY) ?
@@ -57,9 +44,6 @@ public class SingleInstrumentOrderBook implements OrderBook {
                 sellOrders.getBestPrice();
     }
 
-    /**
-     * Time complexity: O(1)
-     */
     @Override
     public OrderNodes getOrdersAtLevel(Side side, long priceLevel) {
         return side.equals(Side.BUY) ?
