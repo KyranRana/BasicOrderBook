@@ -6,11 +6,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class OrderNode {
-    private Order order;
-    private OrderNode prev;
-    private OrderNode next;
+  private Order order;
+  private OrderNode prev;
+  private OrderNode next;
 
-    public OrderNode(Order order) {
-        this.order = order;
-    }
+  public OrderNode(Order order) {
+    this.order = order;
+  }
 }
