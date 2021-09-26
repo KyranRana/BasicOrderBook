@@ -1,12 +1,12 @@
 package com.trade.orderbook.model;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static java.util.Objects.requireNonNull;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-import static com.google.common.base.Preconditions.checkArgument;
-import static java.util.Objects.requireNonNull;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Getter
@@ -15,8 +15,7 @@ import static java.util.Objects.requireNonNull;
 public class Order {
 
   /** unique identifier for the order */
-  @EqualsAndHashCode.Include
-  private long orderId;
+  @EqualsAndHashCode.Include private long orderId;
 
   /** identifier of an instrument */
   private String instrument;
