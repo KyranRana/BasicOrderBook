@@ -1,13 +1,11 @@
-# Order Book Manager
+# BasicOrderBook
 
 ## Focus:
 - Singlethreaded implementation
 - Fixed price order matching
 - Buying and selling a single instrument
 
----
-
-##SingleInstrumentOrderBook
+## SingleInstrumentOrderBook
 
 ### Add Order:
 1. Validation
