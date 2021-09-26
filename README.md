@@ -1,5 +1,7 @@
 # BasicOrderBook
 
+[![Java CI with Maven](https://github.com/KyranRana/BasicOrderBook/actions/workflows/maven.yml/badge.svg)](https://github.com/KyranRana/BasicOrderBook/actions/workflows/maven.yml)
+
 ## Focus:
 - Singlethreaded implementation
 - Fixed price order matching
