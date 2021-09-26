@@ -91,7 +91,7 @@ public class SingleInstrumentOrderBookManagerIntegrationTest {
         SingleInstrumentOrderBookManager orderBookManager = new SingleInstrumentOrderBookManager();
         orderBookManager.addOrder(new Order(1, "Gold", Side.BUY, 250, 1));
         orderBookManager.addOrder(new Order(2, "Gold", Side.BUY, 265, 1));
-        orderBookManager.deleteOrder(2);
+        assertThat(orderBookManager.deleteOrder(2)).isTrue();
         assertThat(orderBookManager.getBestPrice("Gold", Side.BUY)).hasValue(250L);
 
         orderBookManager.addOrder(new Order(3, "Silver", Side.BUY, 240, 1));
@@ -105,12 +105,12 @@ public class SingleInstrumentOrderBookManagerIntegrationTest {
         SingleInstrumentOrderBookManager orderBookManager = new SingleInstrumentOrderBookManager();
         orderBookManager.addOrder(new Order(1, "Gold", Side.SELL, 250, 1));
         orderBookManager.addOrder(new Order(2, "Gold", Side.SELL, 265, 1));
-        orderBookManager.deleteOrder(1);
+        assertThat(orderBookManager.deleteOrder(1)).isTrue();
         assertThat(orderBookManager.getBestPrice("Gold", Side.SELL)).hasValue(265L);
 
         orderBookManager.addOrder(new Order(3, "Silver", Side.SELL, 240, 1));
         orderBookManager.addOrder(new Order(4, "Silver", Side.SELL, 255, 1));
-        orderBookManager.deleteOrder(3);
+        assertThat(orderBookManager.deleteOrder(3)).isTrue();
         assertThat(orderBookManager.getBestPrice("Silver", Side.SELL)).hasValue(255L);
     }
 }
